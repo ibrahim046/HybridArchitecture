@@ -1,0 +1,23 @@
+<div class="w-full relative border-2 border-gray-300 border-dashed rounded-lg p-6 mb-3"
+     (dragover)="dragOverHandler($event)"
+     (dragleave)="dragLeaveHandler($event)"
+     (drop)="dropHandler($event)"
+     id="dropzone">
+  <input type="file" class="absolute inset-0 w-full h-full opacity-0 z-50" id="file-input" (change)="fileChangeHandler($event)" />
+  <div class="text-center">
+      <img class="mx-auto h-12 w-12" src="https://www.svgrepo.com/show/357902/image-upload.svg" alt="">
+
+      <h3 class="mt-2 text-sm font-medium text-gray-900">
+          <label for="file-input" class="relative cursor-pointer">
+              <span>Drag and drop</span>
+              <span class="text-indigo-600"> or browse</span>
+              <span>to upload</span>
+          </label>
+      </h3>
+      <p class="mt-1 text-xs text-gray-500">
+          PNG, JPG, GIF up to 10MB
+      </p>
+  </div>
+
+  <img *ngIf="imageSrc" [src]="imageSrc" class="mt-4 mx-auto max-h-40" id="preview">
+</div>
